@@ -17,7 +17,9 @@ endpoint — selected entirely through environment variables.
 
 **Deployed application:** <https://appointment-chatbot-two.vercel.app>
 
-**Recorded demo video:** <https://drive.google.com/file/d/1kKxh7JiOcoqrBxPU44sW9Ut0S_JBrC8z/view?usp=sharing>
+**Recorded demo video (Google Drive):** <https://drive.google.com/file/d/1kKxh7JiOcoqrBxPU44sW9Ut0S_JBrC8z/view?usp=sharing>
+
+**Recorded demo video (in this repo):** [`docs/demo.mp4`](./docs/demo.mp4)
 
 Sign in with the [demo credentials](#demo-credentials) below, open **Chat**, and
 describe an appointment in plain English (for example, *"Book a 45 minute project
@@ -26,21 +28,19 @@ confirm it — the appointment appears under **Appointments** with `source = cha
 
 ### Demo video
 
-The same recording, embedded:
+Playable inline from the copy committed in this repository:
 
-<iframe
-  src="https://drive.google.com/file/d/1kKxh7JiOcoqrBxPU44sW9Ut0S_JBrC8z/preview"
-  width="100%"
-  height="480"
-  frameborder="0"
-  allow="autoplay; fullscreen"
-  allowfullscreen
-  title="Appointments — AI-assisted booking demo"
-></iframe>
+<video src="./docs/demo.mp4" controls preload="metadata" width="100%">
+  Your browser does not support the video tag —
+  <a href="./docs/demo.mp4">download the demo video</a>.
+</video>
 
-> If the embed does not render in your Markdown viewer, open the
-> [video on Google Drive](https://drive.google.com/file/d/1kKxh7JiOcoqrBxPU44sW9Ut0S_JBrC8z/view?usp=sharing)
-> directly.
+GitHub's README renderer strips `<video>` and `<iframe>` tags, so the embed above
+only appears in viewers that allow raw HTML. On the GitHub repo page, use the
+links instead:
+
+- [Watch on Google Drive](https://drive.google.com/file/d/1kKxh7JiOcoqrBxPU44sW9Ut0S_JBrC8z/view?usp=sharing) (streams instantly)
+- [Download `docs/demo.mp4`](./docs/demo.mp4) from this repo (13 MB)
 
 ---
 
@@ -250,7 +250,14 @@ The seed script creates this user, one business, and two sample appointments.
 
 [![Appointments — AI-assisted booking demo](https://img.shields.io/badge/Demo-Watch%20on%20Google%20Drive-blue?logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1kKxh7JiOcoqrBxPU44sW9Ut0S_JBrC8z/view?usp=sharing)
 
-**External link:** <https://drive.google.com/file/d/1kKxh7JiOcoqrBxPU44sW9Ut0S_JBrC8z/view?usp=sharing>
+**Google Drive (streams instantly):** <https://drive.google.com/file/d/1kKxh7JiOcoqrBxPU44sW9Ut0S_JBrC8z/view?usp=sharing>
+
+**Committed copy:** [`docs/demo.mp4`](./docs/demo.mp4)
+
+<video src="./docs/demo.mp4" controls preload="metadata" width="100%">
+  Your browser does not support the video tag —
+  <a href="./docs/demo.mp4">download the demo video</a>.
+</video>
 
 <iframe
   src="https://drive.google.com/file/d/1kKxh7JiOcoqrBxPU44sW9Ut0S_JBrC8z/preview"
@@ -272,6 +279,8 @@ appointment-chatbot/
 │  └─ migrations/
 │     ├─ 0001_init.sql          # tables, constraints, indexes, triggers
 │     └─ 0002_seed.sql          # demo business / user / appointments
+├─ docs/
+│  └─ demo.mp4                  # recorded walkthrough (also on Google Drive)
 ├─ scripts/
 │  ├─ migrate.mjs               # forward-only migration runner
 │  ├─ seed.mjs                  # seed wrapper
