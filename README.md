@@ -30,6 +30,8 @@ confirm it — the appointment appears under **Appointments** with `source = cha
 
 Playable inline from the copy committed in this repository:
 
+[![Watch the demo video](./docs/demo-thumbnail.png)](./docs/demo.mp4)
+
 <video src="./docs/demo.mp4" controls preload="metadata" width="100%">
   Your browser does not support the video tag —
   <a href="./docs/demo.mp4">download the demo video</a>.
