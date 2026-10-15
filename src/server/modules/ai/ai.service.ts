@@ -239,7 +239,6 @@ export const aiService = {
     // Provider-agnostic call: walks the configured provider chain (primary, then
     // any AI_FALLBACKS) and returns the first usable extraction.
     const result = await callLlm(messages, { json: true });
-    console.log('result :', result);
     const extracted = result.ok ? parseExtraction(result.content) : null;
 
     let outcome: TurnOutcome;
