@@ -15,8 +15,8 @@ export default function AuthPage() {
   const router = useRouter();
   const { login, signup } = useAuth();
   const [mode, setMode] = useState<Mode>('login');
-  const [email, setEmail] = useState('demo@acme.test');
-  const [password, setPassword] = useState('Password123!');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string[]>>({});
@@ -143,10 +143,6 @@ export default function AuthPage() {
             {submitting ? 'Please wait…' : mode === 'login' ? 'Sign in' : 'Create account'}
           </button>
         </form>
-
-        <p className="auth-hint muted">
-          Demo account: <code>demo@acme.test</code> / <code>Password123!</code>
-        </p>
       </div>
     </main>
   );
