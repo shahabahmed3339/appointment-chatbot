@@ -1,0 +1,58 @@
+# Self-hosted stack for the appointment chatbot.
+#
+#   docker compose up --build
+#
+# Provides a local PostgreSQL 16 alongside the app, so the whole system runs
+# without an external database. Migrations and the seed run automatically on
+# first boot. For a managed database (Neon/Supabase/RDS), drop the `db` service
+# and point DATABASE_URL at it instead.
+#
+# The AI provider is optional — without a key the app runs in deterministic
+# fallback mode (form booking + heuristic extraction). Set AI_PROVIDER and the
+# matching key in `.env` to enable conversational extraction. Run
+# `npm run ai:check` locally to verify a key before deploying.
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: appointments
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U app -d appointments']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # `db` resolves via the compose network.
+      DATABASE_URL: postgresql://app:app@db:5432/appointments
+      # Override in a real deployment — this default is for local use only.
+      JWT_SECRET: local-development-secret-change-me
+      # AI provider selection (see .env.example for the full list).
+      AI_PROVIDER: ${AI_PROVIDER:-mistral}
+      AI_FALLBACKS: ${AI_FALLBACKS:-}
+      MISTRAL_API_KEY: ${MISTRAL_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GROK_API_KEY: ${GROK_API_KEY:-}
+      NVIDIA_API_KEY: ${NVIDIA_API_KEY:-}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+    ports:
+      - '3000:3000'
+    # Apply migrations and seed before serving, so a fresh volume comes up ready.
+    command: sh -c "node scripts/migrate.mjs && node scripts/seed.mjs && node server.js"
+
+volumes:
+  pgdata:

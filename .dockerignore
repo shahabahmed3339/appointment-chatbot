@@ -1,0 +1,15 @@
+node_modules
+.next
+.git
+.gitignore
+
+# Never bake secrets into an image — injected at runtime instead.
+.env
+.env.local
+.env*.local
+
+*.log
+README.md
+Dockerfile
+docker-compose.yml
+.dockerignore
