@@ -13,19 +13,51 @@ endpoint — selected entirely through environment variables.
 
 ---
 
+## Live demo
+
+**Deployed application:** <https://appointment-chatbot-two.vercel.app>
+
+**Recorded demo video:** <https://drive.google.com/file/d/1kKxh7JiOcoqrBxPU44sW9Ut0S_JBrC8z/view?usp=sharing>
+
+Sign in with the [demo credentials](#demo-credentials) below, open **Chat**, and
+describe an appointment in plain English (for example, *"Book a 45 minute project
+kickoff next Tuesday at 2pm"*). Watch the booking draft fill in on the right, then
+confirm it — the appointment appears under **Appointments** with `source = chat`.
+
+### Demo video
+
+The same recording, embedded:
+
+<iframe
+  src="https://drive.google.com/file/d/1kKxh7JiOcoqrBxPU44sW9Ut0S_JBrC8z/preview"
+  width="100%"
+  height="480"
+  frameborder="0"
+  allow="autoplay; fullscreen"
+  allowfullscreen
+  title="Appointments — AI-assisted booking demo"
+></iframe>
+
+> If the embed does not render in your Markdown viewer, open the
+> [video on Google Drive](https://drive.google.com/file/d/1kKxh7JiOcoqrBxPU44sW9Ut0S_JBrC8z/view?usp=sharing)
+> directly.
+
+---
+
 ## Table of contents
 
 1. [What it does](#what-it-does)
-2. [Quick start](#quick-start)
-3. [Demo credentials](#demo-credentials)
-4. [Architecture](#architecture)
-5. [Database schema](#database-schema)
-6. [API reference](#api-reference)
-7. [The AI layer, and where its boundary is](#the-ai-layer-and-where-its-boundary-is)
-8. [Design decisions and tradeoffs](#design-decisions-and-tradeoffs)
-9. [What I verified](#what-i-verified)
-10. [Assumptions](#assumptions)
-11. [Limitations and what I would do next](#limitations-and-what-i-would-do-next)
+2. [Live demo](#live-demo)
+3. [Quick start](#quick-start)
+4. [Demo credentials](#demo-credentials)
+5. [Architecture](#architecture)
+6. [Database schema](#database-schema)
+7. [API reference](#api-reference)
+8. [The AI layer, and where its boundary is](#the-ai-layer-and-where-its-boundary-is)
+9. [Design decisions and tradeoffs](#design-decisions-and-tradeoffs)
+10. [What I verified](#what-i-verified)
+11. [Assumptions](#assumptions)
+12. [Limitations and what I would do next](#limitations-and-what-i-would-do-next)
 
 ---
 
@@ -211,6 +243,24 @@ password: Password123!
 ```
 
 The seed script creates this user, one business, and two sample appointments.
+
+---
+
+## Demo video
+
+[![Appointments — AI-assisted booking demo](https://img.shields.io/badge/Demo-Watch%20on%20Google%20Drive-blue?logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1kKxh7JiOcoqrBxPU44sW9Ut0S_JBrC8z/view?usp=sharing)
+
+**External link:** <https://drive.google.com/file/d/1kKxh7JiOcoqrBxPU44sW9Ut0S_JBrC8z/view?usp=sharing>
+
+<iframe
+  src="https://drive.google.com/file/d/1kKxh7JiOcoqrBxPU44sW9Ut0S_JBrC8z/preview"
+  width="100%"
+  height="480"
+  frameborder="0"
+  allow="autoplay; fullscreen"
+  allowfullscreen
+  title="Appointments — AI-assisted booking demo"
+></iframe>
 
 ---
 
